@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Personalizada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="welcome-screen" class="welcome-container">
+    <div class="welcome-box">
+        <h1>Bem-vindo!</h1>
+        <p>Insira seu nome :</p>
+        <input type="text" id="username" class="input-field" placeholder="Seu nome">
+        <button class="welcome-btn" onclick="startApp()">Entrar</button>
+    </div>
+</div>
+
+    <div id="app" style="display: none;">
+        <h1 id="greeting"></h1>
+        <button onclick="toggleCalculator()">Alternar Calculadora</button>
+
+        <div id="simple-calculator" class="calculator">
+            <div id="display"></div>
+            <div class="buttons">
+                <button onclick="clearDisplay()">CE</button>
+                <button onclick="deleteChar()">C</button>
+                <button onclick="deleteLast()">⌫</button>
+                <button onclick="toggleSign()">+/-</button>
+                <button onclick="appendValue('/')">/</button>
+                <button onclick="appendValue('7')">7</button>
+                <button onclick="appendValue('8')">8</button>
+                <button onclick="appendValue('9')">9</button>
+                <button onclick="appendValue('*')">*</button>
+                <button onclick="appendValue('4')">4</button>
+                <button onclick="appendValue('5')">5</button>
+                <button onclick="appendValue('6')">6</button>
+                <button onclick="appendValue('-')">-</button>
+                <button onclick="appendValue('1')">1</button>
+                <button onclick="appendValue('2')">2</button>
+                <button onclick="appendValue('3')">3</button>
+                <button onclick="appendValue('+')">+</button>
+                <button onclick="appendValue('0')">0</button>
+                <button onclick="appendValue('.')">.</button>
+                <button onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <div id="scientific-calculator" class="calculator" style="display: none;">
+          <div id="scientific-display"></div>
+          <div class="buttons">
+              <button onclick="clearDisplay()">CE</button>
+              <button onclick="deleteChar()">C</button>
+              <button onclick="deleteLast()">⌫</button>
+              <button onclick="toggleSign()">+/-</button>
+              <button onclick="appendValue('Math.sin(')">sin</button>
+              <button onclick="appendValue('Math.cos(')">cos</button>
+              <button onclick="appendValue('Math.tan(')">tan</button>
+              <button onclick="appendValue('Math.sqrt(')">√</button>
+              <button onclick="appendValue('Math.log10(')">log</button>
+              <button onclick="appendValue('Math.pow(')">^</button>
+              <button onclick="appendValue('Math.E')">e</button>
+              <button onclick="appendValue('Math.PI')">π</button>
+              <button onclick="appendValue('/')">/</button>
+              <button onclick="appendValue('Math.abs(')">|x|</button>
+              <button onclick="appendValue('*')">*</button>
+              <button onclick="appendValue('+')">+</button>
+              <button onclick="appendValue('-')">-</button>
+              <button onclick="appendValue('9')">9</button>
+              <button onclick="appendValue('8')">8</button>
+              <button onclick="appendValue('7')">7</button>
+              <button onclick="appendValue('6')">6</button>
+              <button onclick="appendValue('5')">5</button>
+              <button onclick="appendValue('4')">4</button>
+              <button onclick="appendValue('3')">3</button>
+              <button onclick="appendValue('2')">2</button>
+              <button onclick="appendValue('1')">1</button>
+              <button onclick="appendValue('0')">0</button>
+              <button onclick="appendValue('.')">.</button>
+              <button onclick="calculate()">=</button>
+          </div>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
