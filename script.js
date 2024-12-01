@@ -20,24 +20,33 @@ function toggleCalculator() {
 }
 
 let currentValue = "";
+let isResult = false;
 
 function appendValue(value) {
+  if (isResult && !isNaN(value)) {
+      currentValue = "";
+
+  }
+
   currentValue += value;
+  isResult = false;
   updateDisplay();
 }
 
 function calculate() {
-  try {
-      currentValue = eval(currentValue).toString();
-      updateDisplay();
-  } catch (e) {
-      currentValue = "Erro";
-      updateDisplay();
-  }
+    try {
+        currentValue = eval(currentValue).toString();
+        isResult = true;
+    } catch (e) {
+        currentValue = "Erro";
+        isResult = false;
+    }
+    updateDisplay();
 }
 
 function clearDisplay() {
   currentValue = "";
+  isResult = false;
   updateDisplay();
 }
 
@@ -47,10 +56,10 @@ function deleteLast() {
 }
 
 function deleteChar() {
-  currentValue = currentValue.replace(/[\d.-]+$/, '');
+  currentValue = currentValue.slice(0, -1);
+  isResult = false;
   updateDisplay();
 }
-
 function toggleSign() {
   if (currentValue) {
       if (currentValue.startsWith("-")) {
@@ -63,7 +72,10 @@ function toggleSign() {
 }
 
 function updateDisplay() {
-  document.getElementById("display").textContent = currentValue || "0";
+  const display = isScientific
+      ? document.getElementById("scientific-display")
+      : document.getElementById("display");
+  display.textContent = currentValue || "0";
 }
 
 
@@ -91,11 +103,3 @@ function updateDisplay() {
     display.textContent = currentValue || "0";
 }
 
-function calculate() {
-    try {
-        currentValue = eval(currentValue).toString();
-    } catch (e) {
-        currentValue = "Erro";
-    }
-    updateDisplay();
-}
